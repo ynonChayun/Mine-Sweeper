@@ -1,0 +1,30 @@
+
+ @import url('http://fonts.cdnfonts.com/css/arcade-classic');
+
+                
+.title-body{
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+    font-family: 'ArcadeClassic', sans-serif;
+    margin-top: -20px;
+}
+
+h1 {
+    width: 300px;
+	font-size: 50px;
+	font-weight: 250;
+	background-color: orange;
+	color: beige;
+	display: block;
+	padding: .3em;
+    border-radius: 19%;
+}
+
+h1:nth-child(2) {
+	position: absolute;
+	background-color: beige;
+	color: orange;
+	clip-path: inset(-1% -1% 50% -1%); 
+}

@@ -1,0 +1,72 @@
+body {
+    text-align: center;
+    background-image: url('/imgs/background.jpg');
+    background-repeat: no-repeat;
+    background-position: 0px 0px;
+    background-size: cover;
+
+    font-family: 'ArcadeClassic', sans-serif;
+    font-weight: 1000;
+
+}
+
+.board {
+    margin: auto;
+    margin-top: 30px;
+
+}
+
+.cell {
+    background-color: whitesmoke;
+    border-radius: 10%;
+
+    height: 50px;
+    width: 50px;
+    cursor: pointer;
+
+}
+
+.text-box {
+
+    width: fit-content;
+
+    margin: auto;
+
+    text-align: left;
+
+}
+
+.text{
+    padding:10px;
+    font-size: 23px;
+    height: 40px;
+    background-color: beige;
+    width: 170px;
+    margin-right: 20px;
+    display: inline-block;
+    border-radius: 6%;
+    margin-top: -10px;
+}
+
+.play-again {
+    height: 70px;
+    height: 70px;
+
+    font-size: 40px;
+    font-family: 'ArcadeClassic', sans-serif;
+
+    background-color: beige;
+    margin-top: 10px;
+    border: none;
+ 
+    font-weight: 800;
+
+    border-radius: 6%;
+    margin: -10px;
+}
+
+
+.play-again:hover {
+    background-color: rgb(50, 231, 216);
+    cursor: pointer;
+}
