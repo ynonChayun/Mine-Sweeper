@@ -4,69 +4,195 @@ body {
     background-repeat: no-repeat;
     background-position: 0px 0px;
     background-size: cover;
-
-    font-family: 'ArcadeClassic', sans-serif;
     font-weight: 1000;
+    font-family: 'ArcadeClassic', sans-serif;
+}
 
+.text {
+    height: 40px;
+    width: 170px;
+    background-color: beige;
+
+    font-size: 23px;
+
+    margin-top: -10px;
+    margin-right: 20px;
+    border-radius: 6%;
+    padding: 10px;
+
+    display: inline-block;
+}
+
+.play-again {
+    width: 70px;
+    height: 70px;
+    background-color: beige;
+
+    font-size: 40px;
+
+    margin: auto;
+    margin-bottom: 10px;
+    margin-top: -10px;
+    border: none;
+    border-radius: 6%;
+
+    display: block;
+    cursor: pointer;
+}
+
+.play-again:hover {
+    box-shadow: 5px 5px 15px 5px #000000;
+}
+
+.level {
+    height: 30px;
+    width: 100px;
+    background-color: orange;
+
+    font-size: 15px;
+    font-family: 'ArcadeClassic', sans-serif;
+    font-weight: 800;
+
+    margin-bottom: 20x;
+    border: none;
+    box-shadow: 5px 5px 15px 5px #000000;
+
+    border: 1.5px solid;
+    border-top-color: #ffffff;
+    border-right-color: #7B7B7B;
+    border-bottom-color: #7B7B7B;
+    border-left-color: #ffffff;
+
+    cursor: pointer;
+}
+
+.rules {
+    display: inline-block;
+    position: absolute;
+    text-align: left;
+    left: -20px;
+    font-weight: 200;
+    width: 280px;
+    top: 100px;
+
+}
+
+.rules li {
+    background-color: rgba(243, 169, 8, 0.521);
+    margin-bottom: 12px;
+    font-size: 20px;
+    list-style: upper-roman inside;
+    padding: 10px;
+    border-radius: 5%;
+
+}
+
+.success {
+    list-style: circle;
+    text-align: center;
 }
 
 .board {
     margin: auto;
     margin-top: 30px;
+    float: left;
+    margin-left: 45%;
 
 }
 
 .cell {
-    background-color: whitesmoke;
+
+    background-color: rgb(23, 141, 170);
+    box-shadow: 5px 5px 15px 5px #000000;
     border-radius: 10%;
-
-    height: 50px;
-    width: 50px;
+    font-size: 20px;
+    height: 30px;
+    width: 30px;
     cursor: pointer;
+    margin: 100px;
+    border: 1.5px solid;
 
+    border-top-color: #ffffff;
+    border-right-color: #7B7B7B;
+    border-bottom-color: #7B7B7B;
+    border-left-color: #ffffff;
 }
 
-.text-box {
 
-    width: fit-content;
-
-    margin: auto;
-
-    text-align: left;
-
+img {
+    height: 100px;
+    cursor: pointer;
 }
 
-.text{
-    padding:10px;
-    font-size: 23px;
-    height: 40px;
-    background-color: beige;
-    width: 170px;
-    margin-right: 20px;
+img:hover {
+    background-image: url('/imgs/hint2.png');
+    background-size: cover;
+}
+
+header {
     display: inline-block;
-    border-radius: 6%;
-    margin-top: -10px;
 }
 
-.play-again {
-    height: 70px;
-    height: 70px;
 
-    font-size: 40px;
-    font-family: 'ArcadeClassic', sans-serif;
-
+button {
+    height: 30px;
+    width: 100px;
     background-color: beige;
-    margin-top: 10px;
-    border: none;
- 
+
+    font-size: 15px;
+    font-family: 'ArcadeClassic', sans-serif;
     font-weight: 800;
 
+    margin-bottom: 20x;
+    border: none;
     border-radius: 6%;
-    margin: -10px;
 }
 
+/* expert 30 % medium  39 % beginner 45%*/
+.buttons {
 
-.play-again:hover {
-    background-color: rgb(50, 231, 216);
+    position: absolute;
+    right: 100px;
+    display: inline-block;
+    margin-top: -100px;
+}
+
+li {
+    list-style: none;
+    margin-bottom: 10px;
+
+}
+
+li button {
+    text-align: center;
+    height: 40px;
+    width: 120px;
+    margin-right: 10px;
+    padding-left: 20px;
+    padding-top: 10px;
+    font-size: 1.1em;
+
+    background-color: rgb(23, 141, 170);
+    box-shadow: 5px 5px 15px 5px #000000;
+    border-radius: 10%;
     cursor: pointer;
+
+    border: 1.5px solid;
+    border-top-color: #ffffff;
+    border-right-color: #7B7B7B;
+    border-bottom-color: #7B7B7B;
+    border-left-color: #ffffff;
+
+}
+
+.manually {
+    height: 90px;
+}
+
+button:hover {
+    background-color: rgb(50, 231, 216);
+}
+
+.mine-hover:hover {
+    background-color: rgb(182, 8, 8);
 }

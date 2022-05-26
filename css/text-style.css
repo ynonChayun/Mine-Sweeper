@@ -13,7 +13,7 @@
 
 h1 {
     width: 300px;
-	font-size: 50px;
+	font-size: 40px;
 	font-weight: 250;
 	background-color: orange;
 	color: beige;
@@ -28,3 +28,43 @@ h1:nth-child(2) {
 	color: orange;
 	clip-path: inset(-1% -1% 50% -1%); 
 }
+
+
+
+
+.shown {
+    background-color: whitesmoke;
+}
+
+.marked {
+    background-color: rgb(240, 179, 11);
+}
+
+.one {
+    color: rgb(2, 73, 55);
+}
+
+.two {
+    color: rgb(221, 245, 3);
+}
+
+.three {
+    color: rgb(190, 21, 16);
+}
+
+.four {
+    color: rgb(17, 32, 167);
+}
+
+.five {
+    color: rgb(37, 156, 7);
+}
+
+.seven {
+    color: rgb(99, 4, 4);
+}
+
+.eigth {
+    color: rgb(8, 32, 2);
+}
+

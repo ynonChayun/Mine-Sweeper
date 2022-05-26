@@ -18,18 +18,75 @@
         <h1>MINE SWEEPER</h1>
     </div>
 
-    <div class="text-box">
-        <p class="text score ">best time &nbsp; 0:0</p>
-        <p class="text ">time &nbsp; <span class="time"> 0:0</span></p>
+
+    <div class="header">
+        <button class="play-again" onclick="playAgain()">😄</button>
+
+        <button class="beginner level" onclick="setLevel(1)">Beginner</button>
+        <button class="medium level" onclick="setLevel(2)">Medium</button>
+        <button class="expert level" onclick="setLevel(3)">Expert</button>
     </div>
+    <div class="body-page">
 
-    <button class="play-again" onclick="playAgain()">😄</button>
+        <ul class="rules">
+
+            <li>
+                To reset the game. Click on the smiley
+            </li>
+            <li>
+                Select the difficulty level of the step accordingly
+            </li>
+            <li>
+                You have only three safe steps and hints, choose wisely
+            </li>
+            <li>
+                Want to play Seven Boom too?
+            </li>
+            <li>
+                Challenge a friend with manual positioning of the <br> mines on the field.
+
+            </li>
+            <li class="success">Successfully!</li>
+        </ul>
 
 
-    <table class="board">
 
-    </table>
+        <table class="board">
+        </table>
+
+        <ul class="buttons">
+            <li>
+                <div class="hints">
+                    <img src="imgs/hint.png" alt="" onclick="clickHint(this,0)">
+                    <img src="imgs/hint.png" alt="" onclick="clickHint(this,1)">
+                    <img src="imgs/hint.png" alt="" onclick="clickHint(this,2)">
+                </div>
+            </li>
+            <li>
+                <p class="text score ">best time &nbsp; 0:0</p>
+            </li>
+            <li>
+                <p class="text ">time &nbsp; <span class="timer"> 0:0</span></p>
+            </li>
+            <li>
+                <button class="safe" onclick="clickSafe(this)">Safe 🦶</button>
+            </li>
+            <li>
+                <button class="undo" onclick="">UNDO↶</button>
+            </li>
+            <li>
+                <button class="7-boom" onclick="sevenBoom()">7 BOOM!</button>
+            </li>
+            <li>
+                <button class="manually" onclick="manuallyPosition()">manually position💣</button>
+            </li>
+        </ul>
+
+
+    </div>
     <script src="js/utils.js"></script>
+    <!-- <script src="js/manually.js"></script> -->
+    <script src="js/mines.js"></script>
     <script src="js/main.js"></script>
 </body>
 
