@@ -1,5 +1,6 @@
 
  @import url('http://fonts.cdnfonts.com/css/arcade-classic');
+ @import url('http://fonts.cdnfonts.com/css/games');
 
                 
 .title-body{
@@ -7,7 +8,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-    font-family: 'ArcadeClassic', sans-serif;
+    font-family: 'games', sans-serif;
     margin-top: -20px;
 }
 

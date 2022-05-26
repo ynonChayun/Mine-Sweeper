@@ -1,8 +1,9 @@
 'use strict'
 
-
 function manuallyPosition() {
-    if(gGame.manuallyPos)return
+    if (gGame.manuallyPos) return
+    if (!gGame.isOn) return
+    if (!gIsFirstClick) return
     gGame.manuallyPos = true
 
     var board = gBoard
@@ -23,9 +24,11 @@ function manuallyPosition() {
     elBoard.innerHTML = boardHTML
 }
 
-
 function createMine(i, j, elMine) {
-
+    if (mineInclude(gMinePoses, { i, j })) {
+        console.log('is also mine');
+        return
+    }
     if (gGame.countManually < gLevel.MINES) {
         gGame.countManually++
         gMinePoses.push({ i, j })
@@ -55,7 +58,6 @@ function createMine(i, j, elMine) {
 
     }
 }
-
 
 function clearClassMine() {
     var cells = document.querySelectorAll('.cell')

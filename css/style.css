@@ -5,7 +5,7 @@ body {
     background-position: 0px 0px;
     background-size: cover;
     font-weight: 1000;
-    font-family: 'ArcadeClassic', sans-serif;
+    font-family: 'Games';
 }
 
 .text {
@@ -50,7 +50,7 @@ body {
     background-color: orange;
 
     font-size: 15px;
-    font-family: 'ArcadeClassic', sans-serif;
+    font-family: 'Games';
     font-weight: 800;
 
     margin-bottom: 20x;
@@ -73,8 +73,8 @@ body {
     left: -20px;
     font-weight: 200;
     width: 280px;
-    top: 100px;
-
+    top: 50px;
+    font-family: 'Games';
 }
 
 .rules li {
@@ -88,7 +88,6 @@ body {
 }
 
 .success {
-    list-style: circle;
     text-align: center;
 }
 
@@ -118,13 +117,21 @@ body {
     border-left-color: #ffffff;
 }
 
+.live{
+    height: 60px;
+    margin: 5px;
+}
+.live:hover {
+    background-image: url('/imgs/heart1.png');
+    background-size: cover;
+}
 
-img {
-    height: 100px;
+.hint {
+    height: 80px;
     cursor: pointer;
 }
 
-img:hover {
+.hint:hover {
     background-image: url('/imgs/hint2.png');
     background-size: cover;
 }
@@ -140,7 +147,7 @@ button {
     background-color: beige;
 
     font-size: 15px;
-    font-family: 'ArcadeClassic', sans-serif;
+    font-family: 'Games';
     font-weight: 800;
 
     margin-bottom: 20x;
@@ -154,7 +161,8 @@ button {
     position: absolute;
     right: 100px;
     display: inline-block;
-    margin-top: -100px;
+    margin-top: -175px;
+    
 }
 
 li {
@@ -187,6 +195,7 @@ li button {
 
 .manually {
     height: 90px;
+    padding-left: 3px;
 }
 
 button:hover {
@@ -195,4 +204,7 @@ button:hover {
 
 .mine-hover:hover {
     background-color: rgb(182, 8, 8);
+}
+.score{
+    padding-bottom: 45px;
 }

@@ -71,6 +71,22 @@ function showMines() {
     }
 }
 
+function showMine(i, j) {
+    var id = getIdByLoc({ i, j })
+    var elMine = document.getElementById(id)
+    elMine.innerText = MINE
+
+    gElPlayAgain.innerText = LOSE
+
+    setTimeout(() => {
+        gElPlayAgain.innerText = SMILE
+        elMine.innerText = ' '
+    }, 1200);
+    setTimeout(() => {
+        if (gBoard[i][j].isMarked && gGame.isOn) elMine.innerText = FLAG
+    }, 1200);
+}
+
 function allMinesMarked() {
     for (var i = 0; i < gMinePoses.length; i++) {
         var pos = gMinePoses[i]

@@ -22,11 +22,13 @@ var gGame = {
 }
 
 var gLevel = {
-    LEVEL: 0,
+    LEVEL: 1,
     SIZE: 4,
     MINES: 2,
     EMPTY: 14
 }
+
+localStorage.clear()
 
 //intervals
 var gManuallyInterval
@@ -68,7 +70,11 @@ function init() {
     gBoard = createBoard()
     renderBoard(gBoard)
 
-
+    gLives = {
+        countLives: 3,
+        elLives: createLives()
+    }
+    resetLives()
     restHints()
 }
 
@@ -112,10 +118,9 @@ function renderBoard(board) {
 }
 
 function cellClicked(event, elCell, i, j) {
-
     if (!gGame.isOn) return
     if (gBoard[i][j].isMarked) return
-
+    
     if (gIsFirstClick) {
         createMines(i, j)
         setTimer()
@@ -134,6 +139,11 @@ function cellClicked(event, elCell, i, j) {
     }
 
     if (cell.isMine) {
+        if (gLives.countLives > 0) {
+            showMine(i, j)
+            useLive()
+            return
+        }
         showMines()
         gGame.isOn = false
         gElPlayAgain.innerText = LOSE
@@ -157,6 +167,7 @@ function checkGameOver() {
         showMines()
         gGame.isOn = false
         clearTimer()
+        setScoreToStorage()
         gElPlayAgain.innerText = WINE
         setBestScore()
     }
@@ -198,7 +209,13 @@ function showCell(cell, i, j) {
     var id = getIdByLoc({ i, j })
     var elCell = document.getElementById(id)
     elCell.classList.add('shown')
-    if (gGame.isHint && cell.isMine) {
+    
+    
+    if(cell.isMarked){
+        cell.isMarked = false
+        elCell.classList.remove('marked')
+    }
+    if (cell.isMine ) {
         elCell.innerText = MINE
         return
     }
@@ -232,117 +249,5 @@ function showCell(cell, i, j) {
     checkGameOver()
 }
 
-function setTimer() {
-
-    var seconds = 0
-    var minutes = 0
-    var elTimer = document.querySelector('.timer')
-
-    gTimerInterval = setInterval(() => {
-        gGame.secsPassed++
-        console.log(gGame.secsPassed);
-        seconds++
-        if (seconds === 60) {
-            seconds = 0
-            minutes++
-        }
-        elTimer.innerText = minutes + ":" + seconds
-    }, 1000);
-
-}
-
-function clearTimer() {
-    clearInterval(gTimerInterval)
-    localStorage.setItem(gCountScore++, gGame.secsPassed);
-
-}
-
-function setBestScore() {
-    var elBestScore = document.querySelector('.score')
-    var seconds = checkBestScore()
-
-    var minutes = parseInt(seconds / 60)
-    seconds = seconds - (minutes * 60)
-
-    elBestScore.innerText = 'best score \n' + minutes + ":" + seconds
-}
-
-function checkBestScore() {
-    var min = Infinity
-    for (var item in localStorage) {
-        var value = localStorage.getItem(localStorage.key(item))
-        if (value < min) min = value
-    }
-    console.log('the min score is', min);
-    return min
-}
 
 
-
-function manuallyPosition() {
-    if (gGame.manuallyPos) return
-    if (!gGame.isOn) return
-    if(!gIsFirstClick)return
-    gGame.manuallyPos = true
-
-    var board = gBoard
-    var boardHTML = ''
-
-    for (var i = 0; i < board.length; i++) {
-        boardHTML += '\n <tr>'
-
-        for (var j = 0; j < board[i].length; j++) {
-            boardHTML += `\n\t <td class= "cell mine-hover"
-             onclick="createMine(${i}, ${j}, this)"
-             ></td>`
-        }
-        boardHTML += '\n </tr>'
-    }
-
-    var elBoard = document.querySelector('.board')
-    elBoard.innerHTML = boardHTML
-}
-
-
-function createMine(i, j, elMine) {
-    if (mineInclude(gMinePoses, { i, j })) {
-        console.log('is also mine');
-        return
-    }
-    if (gGame.countManually < gLevel.MINES) {
-        gGame.countManually++
-        gMinePoses.push({ i, j })
-        elMine.innerText = MINE
-    }
-
-    if (gGame.countManually === gLevel.MINES) {
-        clearClassMine()
-        renderMines(gMinePoses)
-        setMinesNegsCount()
-
-        var seconds = 0
-        var elManuallyBtn = document.querySelector('.manually')
-        gGame.isOn = false
-
-        gManuallyInterval = setInterval(() => {
-            seconds++
-            elManuallyBtn.innerText = 'start! \n more ' + seconds + ' seconds'
-        }, 1000);
-
-        setTimeout(() => {
-            renderBoard(gBoard)
-            elManuallyBtn.innerText = 'start!'
-            clearInterval(gManuallyInterval)
-            gGame.isOn = true
-        }, 5000);
-
-    }
-}
-
-
-function clearClassMine() {
-    var cells = document.querySelectorAll('.cell')
-    for (var i = 0; i < cells.length; i++) {
-        cells[i].classList.remove('mine-hover')
-    }
-}
